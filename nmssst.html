@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Ma Ma Seint!</title>
+    <!-- Google Fonts for a dreamy, cute look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Inter:wght@400;700&family=Noto+Sans+Myanmar:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General body styling for a soft, dreamy feel */
+        body {
+            font-family: 'Comfortaa', 'Inter', sans-serif;
+            background: radial-gradient(circle at 10% 20%, #f7e9f4, #f9e2e2 50%, #e1f5fe 100%); /* Soft pastel cloud gradient */
+            color: #4a4a4a;
+            margin: 0;
+            /* Using display block for natural document flow and scroll */
+            display: block; 
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            text-align: center;
+            position: relative; /* For absolute positioning of decorations */
+        }
+
+        /* Unicorn decoration */
+        .unicorn {
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 200px;
+            height: auto;
+            transform: rotate(-15deg);
+            opacity: 0.8;
+            z-index: 0;
+        }
+
+        /* Party banner decoration */
+        .banner {
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        /* Stars decoration */
+        .star {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            fill: #ffdd59;
+            opacity: 0.7;
+            animation: twinkle 3s infinite ease-in-out;
+            z-index: 1;
+        }
+        
+        .star.s1 { top: 10%; left: 5%; animation-delay: 0.5s; }
+        .star.s2 { top: 20%; right: 15%; animation-delay: 1.2s; }
+        .star.s3 { bottom: 25%; left: 10%; animation-delay: 2s; }
+        .star.s4 { bottom: 15%; right: 5%; animation-delay: 0.8s; }
+
+
+        /* Container for the blog content with enhanced styling */
+        .blog-container {
+            max-width: 800px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white for depth */
+            border-radius: 30px; /* More rounded corners for a softer look */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Lighter shadow for a gentle feel */
+            padding: 3rem 2rem;
+            margin: 1rem auto; /* Center the container horizontally */
+            animation: fadeIn 2s ease-in-out;
+            position: relative; /* For absolute positioning of decorative elements */
+            overflow: hidden; /* Hide elements that go outside the container */
+            z-index: 2; /* Ensure content is on top of decorations */
+        }
+        
+        /* Heading styling with a lovely, vibrant pink and playful font */
+        h1 {
+            font-family: 'Comfortaa', cursive;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            color: #ff69b4; /* Barbie pink */
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+
+        /* Salutation styling for a personal touch */
+        .salutation {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            color: #e91e63;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        /* Paragraph styling for readability */
+        p {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+            line-height: 1.8;
+            margin-bottom: 1.75rem;
+            text-align: left;
+        }
+        
+        /* Specific font and styling for Burmese text */
+        .burmese-text {
+            font-family: 'Noto Sans Myanmar', sans-serif;
+            font-weight: 400;
+            font-size: 1.2em;
+            color: #880e4f;
+            border-left: 4px solid #f48fb1;
+            padding-left: 20px;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        /* Animation for fade-in effect on load */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        /* New image gallery styling */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: 100%;
+            max-width: 150px;
+            max-height: 150px;
+            object-fit: cover;
+            border-radius: 50%; /* Circle shape for a lovely look */
+            border: 4px solid #f48fb1; /* Sweet pink border */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer; /* Add pointer cursor to hint clickability */
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .signature {
+            margin-top: 3rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            font-style: italic;
+            font-weight: 700;
+            color: #c5a4d1;
+        }
+        
+        /* Style for the new message display container */
+        #message-display {
+            font-family: 'Comfortaa', cursive;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: #d81b60;
+            font-weight: 700;
+            text-align: center;
+            margin: 2rem auto;
+            min-height: 60px; /* Ensure space is reserved for the text */
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .blog-container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Unicorn SVG -->
+    <svg class="unicorn" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#fdd8e1" d="M428.1 199.3c-23.3-30.8-62-52.5-104.9-63-42.9-10.4-89.8-10.4-132.7 0s-81.6 32.2-104.9 63c-31.2 41.3-31.2 92.2 0 133.5s73.7 65.5 104.9 63c42.9-2.5 89.8-2.5 132.7 0 42.9 2.5 81.6-18 104.9-63 31.2-41.3 31.2-92.2 0-133.5z"/>
+        <path fill="#fff" d="M352.3 83.1c-16.1-12.8-37.4-20.7-60.6-20.7s-44.5 7.9-60.6 20.7c-21.6 17.2-34.9 44.4-34.9 74.4 0 21.6 6.8 42.1 19.3 61.1l76.2 120.7c2.6 4.1 6.9 6.8 11.6 6.8s9-2.7 11.6-6.8l76.2-120.7c12.5-19 19.3-39.5 19.3-61.1 0-30-13.3-57.2-34.9-74.4z"/>
+        <path fill="#fdd8e1" d="M327.3 124.9c-11.6-9.3-27-14.8-43.2-14.8s-31.6 5.5-43.2 14.8c-15.6 12.4-25.2 32-25.2 53.6 0 15.6 4.9 30.5 13.9 43.6l64.8 102.6c1.9 3.1 4.9 5.2 8.3 5.2s6.4-2.1 8.3-5.2l64.8-102.6c9-13.1 13.9-28 13.9-43.6 0-21.6-9.6-41.2-25.2-53.6z"/>
+        <path fill="#ff69b4" d="M439 216c-31.2-41.3-31.2-92.2 0-133.5s73.7-65.5 104.9-63c42.9 2.5 89.8 2.5 132.7 0s81.6 18 104.9 63c31.2 41.3 31.2 92.2 0 133.5s-73.7 65.5-104.9 63c-42.9-2.5-89.8-2.5-132.7 0s-81.6-18-104.9-63z"/>
+    </svg>
+
+    <!-- Party Banner SVG -->
+    <svg class="banner" viewBox="0 0 1000 100" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#a4e4d6" d="M0 0l50 100L100 0z"/>
+        <path fill="#f8d1da" d="M100 0l50 100L200 0z"/>
+        <path fill="#c8a2c8" d="M200 0l50 100L300 0z"/>
+        <path fill="#fde5a8" d="M300 0l50 100L400 0z"/>
+        <path fill="#a4e4d6" d="M400 0l50 100L500 0z"/>
+        <path fill="#f8d1da" d="M500 0l50 100L600 0z"/>
+        <path fill="#c8a2c8" d="M600 0l50 100L700 0z"/>
+        <path fill="#fde5a8" d="M700 0l50 100L800 0z"/>
+        <path fill="#a4e4d6" d="M800 0l50 100L900 0z"/>
+        <path fill="#f8d1da" d="M900 0l50 100L1000 0z"/>
+    </svg>
+
+    <!-- Stars SVG -->
+    <svg class="star s1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.27l-6.18 3.29L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+    <svg class="star s2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.27l-6.18 3.29L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+    <svg class="star s3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.27l-6.18 3.29L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+    <svg class="star s4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.27l-6.18 3.29L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+
+    <div class="blog-container">
+
+        <!-- Main Title -->
+        <h1>Happy Birthday!</h1>
+
+        <!-- Salutation -->
+        <p class="salutation">My Dearest Ma Ma Seint,</p>
+
+        <!-- New message display area -->
+        <p id="message-display">Click on a photo to see a special message!</p>
+
+        <!-- New Image Gallery -->
+        <div class="image-gallery">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3Nv6wgRT19W3MIGYFrTR3wbKMUXzypORtIw&s" alt="A lovely moment" onerror="this.onerror=null; this.src='https://placehold.co/150x150/ffcdd2/d81b60?text=❤️';">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFU6NBirJiuK0qxsVFYLYsAG2O6-hI_oaFWg&s" alt="Another lovely moment" onerror="this.onerror=null; this.src='https://placehold.co/150x150/ffcdd2/d81b60?text=❤️';">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6S0kSyWAtqtldn69x6VhUg1gINf-NwMhqgw&s" alt="A special memory" onerror="this.onerror=null; this.src='https://placehold.co/150x150/ffcdd2/d81b60?text=❤️';">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpjLoUOiPU-HhHc-eSUrOT0-HnWOtfYotJHA&s" alt="A happy memory" onerror="this.onerror=null; this.src='https://placehold.co/150x150/ffcdd2/d81b60?text=❤️';">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhaddJ_P5PBHmeQLghvV4_rLFotvWPst0WLg&s" alt="Another happy memory" onerror="this.onerror=null; this.src='https://placehold.co/150x150/ffcdd2/d81b60?text=❤️';">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBiCzAZuYMIcFSc7f1q-AoGmcNFz0n3_3zUA&s" alt="New lovely photo 1" onerror="this.onerror=null; this.src='https://placehold.co/150x150/ffcdd2/d81b60?text=❤️';">
+            <img src="https://media.licdn.com/dms/image/v2/D5603AQFrG4EoxmXKoQ/profile-displayphoto-shrink_200_200/B56ZU3fz7OGQAY-/0/1740392843964?e=2147483647&v=beta&t=AlmZ6c_jnksGPCVD1f0yXQA9mnuusIKB17_U0gIuvrM" alt="New lovely photo 2" onerror="this.onerror=null; this.src='https://placehold.co/150x150/ffcdd2/d81b60?text=❤️';">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrZgBerT8qvu7HYhIYUb_r7q_QBo02Ac2Sfw&s" alt="New lovely photo 3" onerror="this.onerror=null; this.src='https://placehold.co/150x150/ffcdd2/d81b60?text=❤️';">
+        </div>
+        
+        <!-- Blog Content -->
+        <p>Today, on this special day before your real birthday, I wanted to give you something simple yet deeply meaningful, a single sunflower surrounded by many little baby flowers.</p>
+        
+        <p>At first glance, it may just look like a flower, but to me, it carries a story that means a lot.</p>
+        
+        <p class="burmese-text">မြန်မာလို ဒီပန်းကို "နေကြာ" လို့ ခေါ်တယ်နော်။ "နေ" ဆိုတာ နေထိုင်တာ၊ "ကြာ" ဆိုတာ ရှည်ကြာတာ။ ဒါကြောင့် "နေကြာ" ဆိုတဲ့ အသက်ရှည်စွာ နေထိုင်ခြင်းအပြင် ကျွန်တော့် နားမှာ ကြာကြာနေ အောင်လို့ကို ပေးတာ။ “နေမြဲ” ဆိုတဲ့ ပန်းမရှိလို့ ရှိရင် အဲ့ဒီပန်းပါ ပေးချင်တာ။</p>
+        
+        <p>At first, I thought about getting a bouquet of red roses, but they felt a little too common and lacking a personal touch. I wanted to do something I have never done and wanted to give you something more special. Alignment with Buddhist beliefs, I chose this flower carefully to have a proper religious meaning not only for your happiness but also for your life to be long, bright, and always full of warmth in the future with me. The sunflower itself always faces the sun; it follows light no matter where it goes. To me, you are like that light in my life.</p>
+        
+        <p class="burmese-text">ကျွန်တော့် ခံစားချက်တွေကို ဖုံးကွယ်ဖို့ ဒါမှမဟုတ် တိတ်တိတ်လေး သိမ်းထားဖို့ ကြိုးစားနေရင်တောင် အဲ့လိုဖြစ်မလာပဲ နေကြာလိုဖြစ်နေပြန်ရော။ နေကြာပန်းက ဟန်ဆောင်မှုမရှိပဲ နေဘက် အမြဲတမ်း မျက်နှာမူနေသလို ကျွန်တော် လည်း မရှိရာဆီကို ဟန်မဆောင်နိုင် တစ်ကောက်ကောက် လိုက်ချင်နေမိတာမျိုး၊ ရင်ထဲရှိသမျှ ထုတ်ဖော် ပြမိတာမျိုးတွေပေါ့။ အရမ်းတိုတောင်းတဲ့ အချိန်ခနလေးအတွင်းမှာတောင် မက တကယ်ကို တန်ဖိုးထားရမယ့်လူ၊ မရှိလို့မဖြစ်တဲ့လူတစ်ယောက် ဖြစ်လာနေပြီ။ ကျွန်တော် မနဲ့အတူ တစ်သက်လုံး ရှိနေချင်တယ်။ ဒါမှ မရဲ့အပြုံးကို ဆက် မြင်ရ၊ မရဲ့ရယ်သံကို ဆက် ကြားရ၊ မနဲ့အတူ မရေမတွက်နိုင်တဲ့ အချိန်တွေကို မျှဝေခံစားရ၊ မစိတ်ညစ် နေလည်း နှစ်သိမ့်ကြင်နာခွင့်ရ၊ မ ငိုနေလည်း ပခုံးတစ်ခု ဖြစ်ခွင့်ရ ကောင်းကောင်းဆိုးဆိုး လက်တွဲရင်ဆိုင်ခွင့်ရချင်လို့။</p>
+        
+        <p>The small baby flowers around the sunflower represent the little efforts, thoughts, and small things I do for you every day. They may look tiny, but together they surround and protect the sunflower, just like how I want to surround you with my care, respect, and affection.</p>
+        
+        <p>This is just a small pre-birthday gift, a symbol of my feelings for you.</p>
+        
+        <p>On your birthday, I will give you my birthday present, but today I wanted to give you something that means and makes you happy as the baby flowers efforts for the sunflower.</p>
+        
+        <p>Seint, I may be younger than you, but my wish for you is timeless: may you always stay happy, healthy, and may your life shine bright like the sunflower in the sun.</p>
+        
+        <p>And if life allows, may I always stand beside you, just as these little flowers stand around the sunflower, protecting and admiring it.</p>
+    
+        <!-- Closing signature and name added -->
+        <p class="signature">Yours forever,<br>Your beloved mg mg (nyan)</p>
+
+    </div>
+    
+    <script>
+        const messages = [
+            '🌻 “Like a sunflower to the sun, my heart always turns toward you, no matter where life takes me.”',
+            '💛 “Your age makes you wiser, but my love for you makes me braver — together we are perfectly balanced.”',
+            '🌸 “You are the calm after my storms, the light after my nights — the reason I believe in tomorrow.”',
+            '✨ “Every birthday of yours feels like a blessing for me too, because your life is the gift I cherish most.”',
+            '🌻 “If I could ask for one wish, it would be simple — to live long beside you, just like ‘Nay Kyar’ promises.”',
+            '💌 “Your smile is my sunrise, your voice is my comfort, and your love is my forever.”',
+            '🌺 “I may be younger in years, but in love, my heart beats endlessly older for you.”',
+            '🌻 “You are my sunflower, and I am the small flowers around you — always protecting, always admiring, always near.”'
+        ];
+
+        const messageDisplay = document.getElementById('message-display');
+        const images = document.querySelectorAll('.image-gallery img');
+
+        images.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                // Find the index of the clicked image
+                const messageIndex = Array.from(images).indexOf(img);
+                // Display the corresponding message
+                if (messages[messageIndex]) {
+                    messageDisplay.textContent = messages[messageIndex];
+                }
+            });
+        });
+    </script>
+</body>
+</html>
